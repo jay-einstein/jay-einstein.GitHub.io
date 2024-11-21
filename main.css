@@ -67,7 +67,7 @@ img {
 a,
 a:visited,
 a:hover {
-    color: #5e5e5e;
+    color: #b5cea8;
     text-decoration: none;
 }
 
@@ -132,7 +132,7 @@ body {
 
 .head_nav ul li a {
     font-size: 16px;
-    color: #333333;
+    color: #a9dbd0;
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
     transition: all 0.2s;
