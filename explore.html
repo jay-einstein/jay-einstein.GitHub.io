@@ -3,15 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>about the blog</title>
+    <title>explore the blog</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            min-height: 100vh;
-            overflow-x: hidden;
-            background: linear-gradient(#2b1055, #7597de);
-        }
-    </style>
 </head>
 
 <body>
@@ -21,36 +14,48 @@
         </a>
         <ul>
             <li><a href="/index.html">Home</a></li>
-            <li><a href="https://space.bilibili.com/1524398789?spm_id_from=333.999.0.0" target="_blank">BiliBili</a></li>
-            <li><a href="https://blog.csdn.net/2301_77580982?spm=1000.2115.3001.5343" target="_blank">CSDN</a></li>
-            <li><a href="#" class="active">About</a></li>
+            <li><a href="https://space.bilibili.com/1524398789" target="_blank">BiliBili</a></li>
+            <li><a href="https://blog.csdn.net/2301_77580982" target="_blank">CSDN</a></li>
+            <li><a href="/about.html" >About</a></li>
         </ul>
     </header>
+ 
     <section>
         <img src="images/stars.png" id="stars">
         <img src="images/moon.png" id="moon">
         <img src="images/mountains_behind.png" id="mountains_behind">
-
         <!-- a href="#sec" id="btn">Explore</a -->
         <img src="images/mountains_front.png" id="mountains_front">
     </section>
-    <div class="sec" id="sec">
-        <h2>求问贤者 若是一切如梦 人能何时醒来</h2>
-        <p>jay-einstein's blog网站</p>
-        <p>搭建时使用了：</p>
-        <p></p>
-        <p>|--create： 免费部署一个静态网站！在GitHub上部署静态网站教程</p>
-        <p>|--https://www.bilibili.com/video/BV1D21uYaEeR/?spm_id_from=333.337.search-card.all.click&vd_source=fac748cd55dc87d0b286970e2ef52f67</p>
-        <p>|</p>
-        <p>|--home： 开源html涡流算法，视频已经失效。</p>
-        <p>|</p>   
-        <p>|--explore： 附源码 视差滚动网站 ｜Html CSS JS</p>
-        <p>|--https://www.bilibili.com/video/BV18v4y1D79U/?spm_id_from=333.337.search-card.all.click&vd_source=fac748cd55dc87d0b286970e2ef52f67</p>
-        <p>|</p>   
-        <p>|--about： 响应式漫画风格全屏页面滚动个人主博客网站设计【HTML5+CSS+JS--期末大作业 】【附完整源码】</p>
-        <p>|--https://www.bilibili.com/video/BV16Q4y1Q7FF/?spm_id_from=333.337.search-card.all.click&vd_source=fac748cd55dc87d0b286970e2ef52f67</p>
 
-    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const infoBox = document.querySelector('.info-box');
+          
+            // 禁用外部页面滚动
+            function disablePageScroll() {
+              document.body.style.overflow = 'hidden';
+            }
+          
+            // 恢复外部页面滚动
+            function enablePageScroll() {
+              document.body.style.overflow = 'scroll';
+            }
+          
+            // 鼠标进入 .info-box 时，启用 .info-box 滚动并禁用外部页面滚动
+            infoBox.addEventListener('mouseenter', function () {
+              infoBox.style.overflow = 'auto'; // 启用 info-box 滚动
+              disablePageScroll(); // 禁用外部页面滚动
+            });
+          
+            // 鼠标离开 .info-box 时，恢复外部页面滚动并禁用 info-box 滚动
+            infoBox.addEventListener('mouseleave', function () {
+              infoBox.style.overflow = 'hidden'; // 禁用 info-box 滚动
+              enablePageScroll(); // 恢复外部页面滚动
+            });
+          });
+    </script>
+
     <script>
         let stars = document.getElementById('stars')
         let moon = document.getElementById('moon')
@@ -72,6 +77,115 @@
             header.style.top = value * 0.5 + 'px'
         })
     </script>
-</body>
 
+    <script>
+        function scrollToSection(blogId) {
+            // 获取目标元素
+            const blogElement = document.getElementById(blogId);
+            
+            // 使用 scrollIntoView 方法平滑滚动到目标区域
+            blogElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // 平滑滚动
+            });
+        }
+    </script>
+
+    <!-- 目录 -->
+    <div class="info-box">
+        <h1>< 目录 ></h1>
+        <h2 onclick="scrollToTop()">↑ Back to the Top</h2>        
+        <h2 onclick="scrollToSection('blog1')">blog 1: 基于linux虚拟机的TCP网络聊天室</h2>
+        <h2 onclick="scrollToSection('blog2')">blog 2: Windows系统c++编写开机提示音</h2>
+        <h2 onclick="scrollToSection('blog3')">blog 3: 更改电脑QQ,微信提示音</h2>
+        <h2 onclick="scrollToSection('blog4')">blog 4: Keil MDK 5.37以上ARMCC编译器安装</h2>
+        <h2 onclick="scrollToSection('blog5')">blog 5: 批改网禁用复制粘贴方法</h2>
+
+
+
+    </div>
+
+    <div class="sec" id="sec">
+        <h2>求问贤者</h2>
+        <h2>-- 若是一切如梦 人能何时醒来</h2>
+
+        <!-- 博客 -->
+        <a href="blog/blog_1.html">
+            <div class="blog-box" id="blog1">
+                <div class="left">
+                    <img src="images/need.png">
+                </div>
+                <div class="right">
+                    <p>项目: 《 基于linux虚拟机的TCP网络聊天室 》</p>
+                    <p>时间: 2024-07-05 06:33:11</p>
+                    <p>概述: 本项目是基于 Ubuntu 22.04 LTS 与 VMware workstation 17 的一个可以实现多机连接的
+                        TCP网络聊天室, 分为服务器 server 和客户端 client 两部分, 界面友好, 在linux系统的终端上实现.
+                    </p>
+                </div>
+            </div>
+        </a>
+        <a href="blog/blog_2.html">
+            <div class="blog-box" id="blog2">
+                <div class="left">
+                    <img src="images/need.png">
+                </div>
+                <div class="right">
+                    <p>项目: 《 Windows系统c++编写开机提示音 》</p>
+                    <p>时间: 2024-07-04 10:54:12</p>
+                    <p>概述: </p>
+                </div>
+            </div>
+        </a>
+        <a href="blog/blog_3.html">
+            <div class="blog-box" id="blog3">
+                <div class="left">
+                    <img src="images/need.png">
+                </div>
+                <div class="right">
+                    <p>项目: 《 更改电脑QQ,微信提示音 》</p>
+                    <p>时间: 2024-07-04 10:49:06</p>
+                    <p>概述: </p>
+                </div>
+            </div>
+        </a>
+        <a href="blog/blog_4.html">
+            <div class="blog-box" id="blog4">
+                <div class="left">
+                    <img src="images/need.png">
+                </div>
+                <div class="right">
+                    <p>项目: 《 Keil MDK 5.37以上ARMCC编译器安装 》</p>
+                    <p>时间: 2024-07-04 10:21:44</p>
+                    <p>概述: </p>
+                </div>
+            </div>
+        </a>
+        <a href="blog/blog_5.html">
+            <div class="blog-box" id="blog5">
+                <div class="left">
+                    <img src="images/need.png">
+                </div>
+                <div class="right">
+                    <p>项目: 《 批改网禁用复制粘贴方法 》</p>
+                    <p>时间: 2023-01-26 22:34:52</p>
+                    <p>概述: </p>
+                </div>
+            </div>
+        </a>
+
+
+
+
+
+
+
+
+    </div>
+</body>
 </html>
