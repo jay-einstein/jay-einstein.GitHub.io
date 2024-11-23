@@ -1,520 +1,295 @@
-/* reset */
+/* 这是引入了一些字体 */
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap'); 
 
 * {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    font-family: 'Microsoft Yahei', '宋体', arial, 'Hiragino Sans GB', Helvetica;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  /* 当用户手动导航或者 CSSOM scrolling API 触发滚动操作时 */
+  scroll-behavior: smooth; 
 }
-
-label {
-    cursor: pointer;
-}
-
-img {
-    vertical-align: middle;
-}
-
-table {
-    empty-cells: show;
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-abbr,
-acronym {
-    border: 0;
-    font-variant: normal;
-}
-
-address,
-caption,
-cite,
-code,
-dfn,
-em,
-th,
-var,
-optgroup {
-    font-style: normal;
-    font-weight: normal;
-}
-
-input,
-button,
-textarea,
-select,
-optgroup,
-option {
-    font-family: inherit;
-    font-size: inherit;
-    font-style: inherit;
-    font-weight: inherit;
-}
-
-input,
-button,
-textarea,
-select {
-    font-size: 100%;
-}
-
-a,
-img {
-    border: 0;
-}
-
-a,
-a:visited,
-a:hover {
-    color: #b5cea8;
-    text-decoration: none;
-}
-
-.clear {
-    clear: both;
-}
-
-/*main*/
 
 body {
-    background-color: #ffffff;
-    width: 100%;
+  min-height: 100vh;
+  overflow: scroll;
+  background: linear-gradient(#e5ad6d, #c1ce5c);
 }
 
-.head {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    width: 100%;
-    background-color: #f3f7fa;
-    height: 70px;
-    filter: alpha(opacity=90);
-    -moz-opacity: 0.9;
-    opacity: 0.9;
-    -khtml-opacity: 0.9;
+::-webkit-scrollbar {
+  display: none; /* 不显示滚动条 */
 }
 
-.logo_img {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    border: 2px solid #ffffff;
-    margin-bottom: 15px;
+a {
+  text-decoration: none; /* 去除链接下划线 */
+  color: inherit; /* 继承父元素颜色，避免链接变成默认的蓝色 */
 }
 
-.head_logo_div,
-.head_nav_div {
-    width: 50%;
-    float: left;
+.info-box {
+  position: fixed; /* 固定定位，使其在屏幕右侧 */
+  top: 140px; /* 垂直居中 */
+  right: 20px; /* 距离右侧20px */
+  width: 390px; /* 容器宽度 */
+  height: 600px; /* 容器高度 */
+
+  background-image: url('images/beauty.png'); /* 背景图片 */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 20px;
+  border-radius: 15px; /* 圆角 */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 给框加点阴影 */
+  overflow-y: scroll; /* 允许垂直滚动 */
+  overflow-x: hidden; /* 禁止水平滚动 */
+  z-index: 30;
 }
 
-.head_logo_div {
-    line-height: 70px;
-    text-align: center;
+.info-box img {
+    width: 350px; /* 图片宽度 */
+    border-radius: 10px; /* 图片圆角 */
+    margin-bottom: 15px; /* 图片和文字之间的间距 */
 }
 
-.head_nav_div {
-    line-height: 70px;
+.info-box p {
+    color: #f3e7e7; /* 文字颜色 */
+    font-size: 18px; /* 字体大小 */
+    margin: 0px; /* 去掉p标签默认的外边距 */
+    word-wrap: break-word; /* 允许单词超出容器宽度时换行 */
+    word-break: break-all; /* 强制在任何字符间断行，避免内容溢出 */
 }
 
-.head_nav {
-    margin: 0 auto;
+.info-box h1 {
+  color: #ffffff; /* 文字颜色 */
+  font-size: 35px; /* 字体大小 */
+  margin: 0; /* 去掉m标签默认的外边距 */
+  text-align: center; /* 水平居中 */
+  display: block; /* 确保m元素是块级元素，能占满一行 */
+  width: 100%; /* 设置宽度为100%确保居中效果 */
+  letter-spacing: 10px; /* 字符间距 */
+  margin-bottom: 30px; /* 增加标题和下面文字的间距 */
 }
 
-.head_nav ul li {
-    float: left;
-    margin-right: 55px;
-    cursor: pointer;
-    font-size: 16px;
+.info-box h2 {
+  color: #eae6e6; /* 文字颜色 */
+  font-size: 15px; /* 字体大小 */
+  margin: 0; /* 去掉m标签默认的外边距 */
+  letter-spacing: 0px; /* 字符间距 */
+  margin-bottom: 10px; 
+  text-decoration: none; /* 去掉下划线 */
+  color: #eff4f5;        /* 设置链接文字颜色 */
+  cursor: pointer;
+  padding-left: 20px;
 }
 
-.head_nav ul li a {
-    font-size: 16px;
-    color: #a9dbd0;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    transition: all 0.2s;
-    transform: all 0.2s;
+.info-box h2:hover {
+  color: #09d1cb87;        /* 鼠标悬停时更改颜色 */
 }
 
-.head_nav ul li a:hover {
-    color: #4b91c9;
+.blog-box {
+  display: flex;
+  width: 1000px; /* 容器宽度 */
+  height: 240px; /* 容器高度 */
+  background-color: rgba(235, 241, 242, 0.299);
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 15px; /* 圆角 */
+  left: 40px; /* 距离右侧20px */
 }
 
-.wrapBox {
-    top: 0;
-    position: fixed;
-    width: 100%;
-    height: 100%;
+.blog-box .left {
+  flex: 3;
+  max-width: 500px;
+  margin-right: 20px;
 }
 
-/*
-#wrapBox{
-    -webkit-transition: all 1s;
-    -moz-transition: all 1s;
-    -o-transition: all 1s;
-
-}
-*/
-
-.box {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    /*
-    -webkit-transition: all 1s;
-    -moz-transition: all 1s;
-    -o-transition: all 1s;
-*/
+.blog-box .left img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px; /* 圆角 */
 }
 
-.box01_content {
-    position: absolute;
-    z-index: 3;
-    top: 13%;
-    left: 10%;
-    width: 80%;
+.blog-box .right {
+  flex: 4;
+  word-wrap: break-word; /* 自动换行 */
 }
 
-.head_div {
-    width: 80%;
-    margin: 0 auto;
-    height: 50%;
+header {
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
 }
 
-.cycle_item {
-    background: url('images/cycle.svg') no-repeat;
-    width: 400px;
-    height: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
+header .logo img {
+  width: 100px; /* 或根据需要设置合适的大小 */
+  height: auto; /* 保持图片的比例 */
 }
 
-.green_cycle {
-    width: 260px;
-    height: 260px;
-    margin: 0 auto;
-    padding-top: 70px;
+.welcome {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 2em;
+  text-transform: uppercase; /* 大写 */
+  letter-spacing: 2px; /* 字符间距 */
 }
 
-.yellow_cycle {
-    display: inline-block;
-    width: 240px;
-    height: 240px;
-    margin: 10px;
+header ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.blue_cycle {
-    width: 220px;
-    height: 220px;
-    text-align: center;
-    margin: 10px auto 10px auto;
+header ul li {
+  list-style: none;
+  margin-left: 20px;
 }
 
-.green_cycle_img,
-.yellow_cycle_img,
-.blue_cycle_img {
-    position: absolute;
+header ul li a {
+  text-decoration: none;
+  padding: 6px 15px;
+  color: #fff;
+  border-radius: 20px;
 }
 
-.head_img_div {
-    position: relative;
+header ul li a:hover,
+header ul li a.active {
+  background: #fff;
+  color: #2b1055;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+section::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, #000000, transparent);
+  z-index: 20;
+}
+
+section img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* object-fit CSS 属性指定可替换元素（例如：<img> 或 <video>）的内容应该如何适应到其使用高度和宽度确定的框。 */
+  object-fit: cover;
+  pointer-events: none;
+}
+
+section img#moon {
+  /* mix-blend-mode CSS 属性描述了元素的内容应该与元素的直系父元素的内容和元素的背景如何混合。 */ 
+  mix-blend-mode: screen;
+}
+
+section img#mountains_front {
+  z-index: 10;
+}
+
+#text {
+  font-size: 50px;
+  position: relative;
+  letter-spacing:30px;
+  text-transform:uppercase;
+  text-align: center;
+  line-height:0.2em;
+  outline: none;
+  -webkit-box-reflect: below 1px linear-gradient(transparent,#0008);
+  animation: textanimate 5s linear infinite;
+}
+@keyframes textanimate{
+  0%,21%,31%,51%,60%,80%,90%,92%{
+    color: #0e3742;
+  }
+  20%,30%,50%,60%,80%,90%,100%{
+    color:#fff;
+    text-shadow: 0 0 10px #03bcf4,0 0 20px #03bcf4,
+    0 0 40px #03bcf4,0 0 80px #03bcf4;
+  }
+}
+
+#road{
     z-index: 2;
-    display: inline;
-    width: 200px;
-    height: 200px;
-    margin-top: 7px;
 }
 
-.head_img {
-    display: inline-block;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 3px solid pink;
-    margin: 7px;
-    -webkit-animation: headneon 1.5s ease-in-out infinite alternate;
-    -moz-animation: headneon 1.5s ease-in-out infinite alternate;
-    animation: headneon 1.5s ease-in-out infinite alternate;
+#btn {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 30px;
+  border-radius: 40px;
+  background: 
+  linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+  background-size: 400%;
+  color: #2b1055;
+  font-size: 1.5em;
+  z-index: 9;
+  transform: translateY(250px);
+}
+#btn:hover{
+  animation: animate 8s linear infinite;
+}
+#btn::before{
+  content: '';
+  position: absolute;
+  inset: -5px;
+  z-index: -1;
+  background: 
+  linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+  background-size: 400%;
+  border-radius: 40px;
+  opacity: 0;
+}
+#btn:hover::before{
+  filter: blur(20px);
+  opacity: 1;
+  animation: btnanimate 8s linear infinite;
 }
 
-@keyframes headneon {
-    from {
-        box-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #fff;
-    }
-    to {
-        box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff;
-    }
+@keyframes btnanimate{
+  from{
+    background-position: 0%;
+  }
+  to{
+    background-position: 400%;
+  }
 }
 
-@-moz-keyframes headneon {
-    from {
-        box-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #fff;
-    }
-    to {
-        box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff;
-    }
+.sec {
+  position: relative;
+  padding: 100px;
+  background: #000000ad;
 }
 
-.green_cycle_img {
-    animation-name: clockwise;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    /*safari & Chrome */
-    -webkit-animation-name: clockwise;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-direction: normal;
+.sec h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #fff;
 }
 
-.yellow_cycle_img {
-    animation-name: anticlockwise;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    /*safari & Chrome */
-    -webkit-animation-name: anticlockwise;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-direction: normal;
+.sec p {
+  font-size: 1.2em;
+  color: #fff;
+  margin-bottom: 8px; /* 增加标题和下面文字的间距 */
+  letter-spacing: 2px; /* 字符间距 */
 }
 
-.blue_cycle_img {
-    animation-name: clockwise;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    /*safari & Chrome */
-    -webkit-animation-name: clockwise;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-direction: normal;
-}
-
-@keyframes clockwise {
-    from {
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-    }
-    to {
-        -webkit-transform: rotate(360deg);
-        -moz-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-        -o-transform: rotate(360deg);
-    }
-}
-
-@-webkit-keyframes clockwise {
-    from {
-        -webkit-transform: rotate(0deg);
-    }
-    to {
-        -webkit-transform: rotate(360deg);
-    }
-}
-
-@keyframes anticlockwise {
-    from {
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-    }
-    to {
-        -webkit-transform: rotate(-360deg);
-        -moz-transform: rotate(-360deg);
-        -ms-transform: rotate(-360deg);
-        -o-transform: rotate(-360deg);
-    }
-}
-
-@-webkit-keyframes anticlockwise {
-    from {
-        -webkit-transform: rotate(0deg);
-    }
-    to {
-        -webkit-transform: rotate(-360deg);
-    }
-}
-
-.cycle_item a {
-    position: absolute;
-    display: block;
-    border-radius: 25px;
-    width: 120px;
-    height: 50px;
-    left: -50px;
-    top: 180px;
-}
-
-.github_a {
-    background-color: #42c9a3;
-    position: relative;
-    display: inline-block;
-    text-decoration: none;
-    font-size: 16px;
-    color: #000;
-}
-
-.github_icon {
-    background: url('images/qq.png') no-repeat;
-    border-radius: 28px;
-    display: block;
-    width: 40px;
-    height: 40px;
-    position: relative;
-    background-size: cover;
-    -moz-background-size: cover;
-    left: 10px;
-    top: 5px;
-}
-
-.addpic {
-    display: none; /* 默认隐藏图片 */
-    position: absolute;
-    top: 100%; /* 图片出现在文本下侧 */
-    margin-top: 20px; /* 调整图标和文字之间的间距 */
-    width: 200px; /* 调整图片大小 */
-    height: 200px; /* 根据需要调整图片的高度 */
-}
-
-.addpict {
-    display: none; /* 默认隐藏图片 */
-    position: absolute;
-    right: 100%; /* 图片出现在文本下侧 */
-    margin-right: 20px; /* 调整图标和文字之间的间距 */
-    width: 200px; /* 调整图片大小 */
-    height: 200px; /* 根据需要调整图片的高度 */
-}
-
-.github_a:hover  .addpict {
-    display: inline-block; /* 鼠标悬停时显示图片 */
-    border: 3px solid black; /* 鼠标悬停时添加黑色边框 */
-}
-
-.weibo_a:hover  .addpic {
-    display: inline-block; /* 鼠标悬停时显示图片 */
-    border: 3px solid black; /* 鼠标悬停时添加黑色边框 */
-}
-
-.blog_a:hover  .addpict {
-    display: inline-block; /* 鼠标悬停时显示图片 */
-    border: 3px solid black; /* 鼠标悬停时添加黑色边框 */
-}
-
-.github_text,
-.weibo_text,
-.blog_text {
-    width: 50px;
-    margin-top: 0;
-    left: 50px;
-    text-align: right;
-    padding: 0 5px;
-    position: absolute;
-    top: 0;
-}
-
-.item_name {
-    font-size: 16px;
-    line-height: 50px;
-    text-align: center;
-    color: #fff;
-    white-space: nowrap;
-}
-
-.weibo_a {
-    background-color: #EAC251;
-    position: relative;
-    display: inline-block;
-    text-decoration: none;
-    font-size: 16px;
-    color: #000;
-}
-
-.weibo_a .weibo_icon {
-    background: url('images/wechat.png');
-    border-radius: 35px;
-    display: block;
-    width: 40px;
-    height: 40px;
-    position: relative;
-    background-size: cover;
-    -moz-background-size: cover;
-    left: 10px;
-    top: 5px;
-}
-
-.blog_a {
-    background-color: #6DB3D9;
-    position: relative;
-    display: inline-block;
-    text-decoration: none;
-    font-size: 16px;
-    color: #000;
-}
-
-.blog_a .blog_icon {
-    background: url('images/douyin.png');
-    display: block;
-    width: 32px;
-    height: 32px;
-    position: relative;
-    background-size: cover;
-    -moz-background-size: cover;
-    left: 15px;
-    top: 8px;
-}
-
-.box01_content h1,
-.box01_content h2,
-.box01_content p {
-    color: #ffffff;
-    font-weight: lighter;
-    text-align: center;
-}
-
-.box01_content .title {
-    font-size: 40px;
-    margin-top: 10px;
-}
-
-.box01_content .title_h2 {
-    font-size: 30px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
-#box01_text {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-}
-
-.box01_content .box01_p {
-    font-size: 20px;
-    font-weight: lighter;
-    line-height: 38px;
-    -webkit-transition: all ease 0.3s;
-    -moz-transition: all ease 0.3s;
-    -ms-transition: all ease 0.3s;
-    transition: all ease 0.3s;
-    filter: alpha(opacity=0);
-    -moz-opacity: 0;
-    -khtml-opacity: 0;
-    opacity: 0;
-    cursor: pointer;
-}
 

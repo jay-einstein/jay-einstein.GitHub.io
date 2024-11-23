@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飘雪效果与盒子布局</title>
+    <link rel="stylesheet" href="../main_blog.css">
+    <style>
+        /* 背景图片 */
+        .background {
+            background-image: url('../picture/blogbg.png');
+        }
+        .box.left{
+            background-image: url('../picture/leftbg.png'); /* 设置背景图片 */
+
+        }
+        .box.right{
+            background-image: url('../picture/rightbg.png'); /* 设置背景图片 */
+        }
+    </style>
+</head>
+
+<body>
+    <script src="../../javascript/snow.js"></script>
+
+    <!-- 背景 -->
+    <div class="background"></div>
+
+    <!-- 返回 -->
+    <a href="../../explore.html"><- return -<</a>
+
+    <!-- 按钮 -->
+    <theme-button value="light" id="btn" size="3"></theme-button>
+
+
+    <script>
+        const btn = document.getElementById("btn");
+
+        btn.addEventListener("change", e => {
+          const boxes = document.querySelectorAll(".box_center");  // 获取所有 class 为 box 的元素
+          if (e.detail === 'dark') {
+            boxes.forEach(box => {
+              box.style.backgroundColor = "#434343ba";  // 深灰色背景
+              box.style.color = "rgb(255,255,255)";  // 深灰色背景
+            });
+          } else {
+            boxes.forEach(box => {
+              box.style.backgroundColor = "rgba(255, 255, 255, 0.8)";  // 白色背景
+              box.style.color = "rgb(0,0,0)";  // 深灰色背景
+            });
+          }
+        });
+        
+    </script>
+
+
+    <script src="../../javascript/btn_dn.js"></script>
+
+
+    <!-- 左栏项目 -->
+    <div class="box left">
+        <div class="text1">项目名: </div>
+
+
+    </div>
+
+    <!-- 右栏信息 -->
+    <div class="box right">
+        <div class="text1">JayEinstein </div>
+    
+    
+    </div>
+
+    <div class="box_center">
+        <img src="../picture/test.jpg">
+        <h1>JayEinstein</h1>
+
+
+    </div>
+
+</body>
+
+</html>
