@@ -35,44 +35,67 @@ html {
 /* 盒子样式 */
 .box {
     position: absolute;
-    width: 300px;
-    height: 600px;
+    width: 18.5vw;
+    height: 76%;
     background-color: rgba(255, 255, 255, 0.5);
-    color: rgb(227, 149, 32); /* 设置字体颜色为黑色 */
     border-radius: 10px;
     z-index: 3;
-    padding: 18px; /* 设置组件与边框之间的距离 */
     box-sizing: border-box; /* 确保padding不会影响元素的大小 */
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* 让容器的所有子元素（图片和文本）默认左对齐 */
     background-size: cover; /* 让背景图片填充整个容器 */
     background-position: center; /* 背景图片居中显示 */
+    overflow-y: scroll; /* 保持内容可滚动 */
 }
-.box img {
-    width: 250px; /* 设置图片宽度为250px */
-    height: 150px; /* 设置图片高度为150px */
-    border-radius: 10px; /* 设置图片圆角 */
-    object-fit: cover; /* 保证图片按比例填充区域 */
-    align-self: center; /* 使图片水平居中 */
-    margin-bottom: 15px; /* 给图片与文本之间留一点空间 */
+.box::-webkit-scrollbar {
+    display: none; /* 对Webkit内核浏览器有效（Chrome, Safari, Edge） */
 }
+
 .box .text1 {
     font-weight: bold;
-    font-size: 18px; /* 设置字体大小 */
-    margin-left: 5px; /* 设置文本与左边框的距离为5px */
+    font-size: 1.125vw; /* 设置字体大小 */
+    margin-left: 2%; /* 设置文本与左边框的距离为5px */
     text-align: left; /* 使文本左对齐 */
+    color: #ff21c0; 
+}
+.box .text2 {
+    font-weight: bold;
+    font-size: 1vw; /* 设置字体大小 */
+    margin-left: 2%; /* 设置文本与左边框的距离为5px */
+    text-align: left; /* 使文本左对齐 */
+    color: #21ebff; 
 }
 
 /* 左侧盒子 */
 .box.left {
-    left: 50px;
-    top: 50px;
+    left: 3.3%;
+    top: 5%;
+    padding: 1.2%; /* 设置组件与边框之间的距离 */
 }
+.box.left img {
+    width: 95%; /* 设置图片宽度为250px */
+    aspect-ratio: 1.7; /* 设置图片的宽高比为 25:15，即 5:3 */    
+    border-radius: 5px; /* 设置图片圆角 */
+    object-fit:cover; /* 保证图片按比例填充区域 */
+    align-self: center; /* 使图片水平居中 */
+    margin-bottom: 1.9%; /* 给图片与文本之间留一点空间 */
+    opacity: 0.8;           /* 设置图片透明度为50% */
+}
+
 /* 右侧盒子 */
 .box.right {
-    right: 50px;
-    top: 50px;
+    right: 3.3%;
+    top: 5%;
+    padding: 1%; /* 设置组件与边框之间的距离 */
+}
+.box.right img {
+    width: 15%; /* 设置图片宽度为250px */
+    height: 6.4%; /* 设置图片高度为150px */
+    border-radius: 5px; /* 设置图片圆角 */
+    object-fit:contain; /* 保证图片按比例填充区域 */
+    margin-bottom: 1.9%; /* 给图片与文本之间留一点空间 */
+    opacity: 0.8;           /* 设置图片透明度为50% */
 }
 
 /* 中间盒子 */
@@ -80,18 +103,15 @@ html {
     position: absolute; /* 绝对定位 */
     left: 50%;          /* 左边距设置为 50% */
     top: 50%;           /* 上边距设置为 50% */
-    width: 800px;       /* 宽度为 500px */
+    width: 50%;       /* 宽度为 500px */
     height: 100vh;      /* 高度为视口的高度 */
     transform: translate(-50%, -50%); /* 通过平移使盒子居中 */
     background-color: rgba(255, 255, 255, 0.8); /* 白色半透明背景 */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 阴影效果 */
-    border-radius: 5vmin;   
+    border-radius: 1.9%;   
     overflow-y: scroll; /* 保持内容可滚动 */
-    padding: 30px; /* 设置组件与边框之间的距离 */
-    box-sizing: border-box; /* 确保padding不会影响元素的大小 */
+    padding: 1.8%; /* 设置组件与边框之间的距离 */
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* 让容器的所有子元素（图片和文本）默认左对齐 */
     z-index: 3;
     color: rgb(0, 0, 0);
 }
@@ -100,33 +120,30 @@ html {
 }
 
 .box_center img {
-    width: 600px; /* 设置图片宽度为250px */
-    height: 300px; /* 设置图片高度为150px */
-    border-radius: 10px; /* 设置图片圆角 */
+    width: 75%; /* 设置图片宽度为250px */
+    aspect-ratio: 1.97; /* 设置图片的宽高比为 25:15，即 5:3 */    
+    border-radius: 5px; /* 设置图片圆角 */
     object-fit: cover; /* 保证图片按比例填充区域 */
     align-self: center; /* 使图片水平居中 */
-    margin-bottom: 15px; /* 给图片与文本之间留一点空间 */
+    margin-bottom: 1.9%; /* 给图片与文本之间留一点空间 */
 }
-.box_center .h1 {
-    font-weight: bold;
-    font-size: 18px; /* 设置字体大小 */
-    margin-left: 5px; /* 设置文本与左边框的距离为5px */
+.box_center h1 {
+    font-size: 1.56vw; /* 设置字体大小 */
     text-align: left; /* 使文本左对齐 */
 }
-.box_center .h2 {
-    font-size: 18px; /* 设置字体大小 */
-    margin-left: 5px; /* 设置文本与左边框的距离为5px */
+.box_center h2 {
+    font-size: 1.25vw; /* 设置字体大小 */
     text-align: left; /* 使文本左对齐 */
 }
 a {
     position: absolute;
-    left: 95px;
-    bottom: 15px; /* 距离屏幕底部 50px */
-    padding: 10px 30px;
-    margin: 35px 0; /* 这个可能不需要，因为已经使用了 absolute 定位 */
+    right: 6%;
+    bottom: 6.7%; /* 距离屏幕底部 50px */
+    padding: 2vh 1.875vw;
+
     color: #21ebff;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 1.25vw;
     letter-spacing: 2px; /* 增加字母之间的间距 */
     overflow: hidden;
     transition: .5s;
@@ -137,7 +154,7 @@ a:hover{
     background-color:
     #ff21c0;
     color: #111;
-    box-shadow:0 0 50px
+    box-shadow:0 0 2vw
     #ff21c0;
     transition-delay: .2s;
 }
@@ -146,8 +163,8 @@ a::before{
     position: absolute;
     top:0;
     left:0;
-    width: 10px;
-    height: 10px;
+    width: 0.6vh;
+    height: 0.6vh;
     border-left:2px solid #ff21c0;
     border-top:2px solid #ff21c0;
     transition: .5s;
@@ -157,8 +174,8 @@ a::after{
     position: absolute;
     bottom:0;
     right:0;
-    width: 10px;
-    height: 10px;
+    width: 0.6vh;
+    height: 0.6vh;
     border-bottom:2px solid #ff21c0;
     border-right:2px solid #ff21c0;
     transition: .5s;
@@ -169,10 +186,14 @@ a:hover::before, a:hover::after{
 }
 #btn{
     position: absolute;
-    right: 95px;
-    bottom: 15px; /* 距离屏幕底部 50px */
-    padding: 10px 95px;
-    margin: 35px 0; /* 这个可能不需要，因为已经使用了 absolute 定位 */
+    left: 10vw;
+    bottom: 8.5%; /* 距离屏幕底部 50px */
+    padding: 2vh 1.875vw;
+
     transition: 0.5s;
     z-index: 3;
+}
+theme-button {
+    transform: scaleX(1) scaleY(1);  /* 默认大小为 1 */
+    transition: transform 0.3s ease-in-out;  /* 平滑过渡 */
 }

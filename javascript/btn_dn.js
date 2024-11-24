@@ -236,6 +236,7 @@
       func(container, initTheme, changeTheme);
       shadow.appendChild(style);
       shadow.appendChild(container);
+      
     }
   }
 

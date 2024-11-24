@@ -4,80 +4,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>飘雪效果与盒子布局</title>
+    <title>基于linux虚拟机的TCP网络聊天室</title>
     <link rel="stylesheet" href="../main_blog.css">
     <style>
         /* 背景图片 */
         .background {
             background-image: url('../picture/blogbg.png');
         }
-        .box.left{
-            background-image: url('../picture/leftbg.png'); /* 设置背景图片 */
 
+        .box.left {
+            background-image: url('../picture/leftbg.png');
         }
-        .box.right{
-            background-image: url('../picture/rightbg.png'); /* 设置背景图片 */
+
+        .box.right {
+            background-image: url('../picture/rightbg.png');
         }
     </style>
 </head>
 
 <body>
-    <script src="../../javascript/snow.js"></script>
 
     <!-- 背景 -->
     <div class="background"></div>
 
-    <!-- 返回 -->
-    <a href="../../explore.html"><- return -<</a>
-
     <!-- 按钮 -->
+    <script src="../../javascript/btn_dn.js"></script>
     <theme-button value="light" id="btn" size="3"></theme-button>
-
 
     <script>
         const btn = document.getElementById("btn");
 
         btn.addEventListener("change", e => {
-          const boxes = document.querySelectorAll(".box_center");  // 获取所有 class 为 box 的元素
-          if (e.detail === 'dark') {
-            boxes.forEach(box => {
-              box.style.backgroundColor = "#434343ba";  // 深灰色背景
-              box.style.color = "rgb(255,255,255)";  // 深灰色背景
-            });
-          } else {
-            boxes.forEach(box => {
-              box.style.backgroundColor = "rgba(255, 255, 255, 0.8)";  // 白色背景
-              box.style.color = "rgb(0,0,0)";  // 深灰色背景
-            });
-          }
+            const boxes = document.querySelectorAll(".box_center");  // 获取所有 class 为 box 的元素
+            if (e.detail === 'dark') {
+                boxes.forEach(box => {
+                    box.style.backgroundColor = "#434343ba";  // 深灰色背景
+                    box.style.color = "rgb(255,255,255)";  // 深灰色背景
+                });
+            } else {
+                boxes.forEach(box => {
+                    box.style.backgroundColor = "rgba(255, 255, 255, 0.8)";  // 白色背景
+                    box.style.color = "rgb(0,0,0)";  // 深灰色背景
+                });
+            }
         });
-        
     </script>
 
 
-    <script src="../../javascript/btn_dn.js"></script>
+
+    <script>
+        // 获取按钮元素
+        function adjustButtonScale() {
+            // 获取浏览器窗口的宽度
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;  // 获取窗口的高度
+            
+            // 设定scaleX的范围（例如，最小值0.5，最大值2）
+            const minWidth = 100;  // 假设最小宽度为320px
+            const maxWidth = 1600; // 假设最大宽度为1600px
+            const minHeight = 50;  // 假设最小宽度为320px
+            const maxHeight = 780; // 假设最大宽度为1600px
+
+            // 计算比例
+            let scaleX = (windowWidth - minWidth) / (maxWidth - minWidth);
+            let scaleY = (windowHeight - minHeight) / (maxHeight - minHeight);
+
+            // 限制scale的范围
+            scaleX = Math.min(Math.max(scaleX, 0.2), 2);
+            scaleY = Math.min(Math.max(scaleY, 0.2), 2);
+
+            // 选择按钮并更新transform属性
+            const button = document.querySelector('theme-button');
+            button.style.transform = `scaleX(${scaleX}) scaleY(${scaleY})`;        }
+
+        // 初始调整
+        adjustButtonScale();
+
+        // 监听窗口大小变化，重新调整按钮大小
+        window.addEventListener('resize', adjustButtonScale);
+
+    </script>
 
 
-    <!-- 左栏项目 -->
-    <div class="box left">
-        <div class="text1">项目名: </div>
+    <!-- 返回 -->
+    <a href="../../explore.html#blog1"><- return -<</a>
+
+            <!-- 左栏项目 -->
+            <div class="box left">
+                <div class="text1">项目:</div>
+                <div class="text2">基于linux虚拟机的TCP网络聊天室</div>
+                <div>-----------------------------</div>
+                <div class="text1">时间:</div>
+                <div class="text2">2024-07-05 06:33:11</div>
+                <div>-----------------------------</div>
+                <div class="text1">概述:</div>
+                <div class="text2">本项目是基于 Ubuntu 22.04 LTS 与 VMware workstation 17 的一个可以实现多机连接的
+                    TCP网络聊天室, 分为服务器 server 和客户端 client 两部分, 界面友好, 在linux系统的终端上实现. </div>
+                <div>-----------------------------</div>
+                <img src="../picture/blogbg.png" alt="Image">
+            </div>
+
+            <!-- 右栏信息 -->
+            <div class="box right">
+                <img src="../../images/logo_src.png" alt="Head">
+                <div class="text1">Blogger:</div>
+                <div class="text2">JayEinstein</div>
+                <div>-----------------------------</div>
 
 
-    </div>
+            </div>
 
-    <!-- 右栏信息 -->
-    <div class="box right">
-        <div class="text1">JayEinstein </div>
-    
-    
-    </div>
-
-    <div class="box_center">
-        <img src="../picture/test.jpg">
-        <h1>JayEinstein</h1>
+            <div class="box_center">
+                <img src="../picture/test.jpg">
+                <h1>JayEinstein</h1>
 
 
-    </div>
+            </div>
 
 </body>
 
